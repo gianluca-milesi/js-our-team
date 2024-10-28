@@ -60,3 +60,45 @@ for (let i = 0; i < teamMembers.length; i++) {
 
     // console.log(name.innerHTML);
 }
+
+
+const rowContainer = document.querySelector(".row");
+
+function addNewCard(member) {
+    const card = document.createElement("div");
+    card.classList.add("col-12", "col-md-6", "col-xxl-4");
+    card.innerHTML = `
+        <div class="card mb-3 bg-black text-white">
+            <div class="row g-0">
+                <div class="col-4">
+                    <img src="${member.img}" class="img-fluid rounded-start">
+                </div>
+                <div class="col-8">
+                    <div class="card-body">
+                        <h5 class="card-title">${member.name}</h5>
+                        <p class="card-text">${member.role}</p>
+                        <p class="card-text"><small class="text-info">${member.email}</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    rowContainer.appendChild(card);
+}
+
+const addMember = document.getElementById("add-member-form");
+addMember.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const role = document.getElementById("role").value;
+    const email = document.getElementById("email").value;
+    // const img = document.getElementById("img").value;
+
+    const newMember = { name, role, email };
+
+    teamMembers.push(newMember);
+    addNewCard(newMember);
+
+    addMember.reset();
+});
