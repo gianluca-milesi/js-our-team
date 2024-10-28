@@ -93,9 +93,9 @@ addMember.addEventListener("submit", function (event) {
     const name = document.getElementById("name").value;
     const role = document.getElementById("role").value;
     const email = document.getElementById("email").value;
-    // const img = document.getElementById("img").value;
+    const img = document.getElementById("img").value;
 
-    const newMember = { name, role, email };
+    const newMember = { name, role, email, img };
 
     teamMembers.push(newMember);
     addNewCard(newMember);
