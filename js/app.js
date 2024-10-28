@@ -36,3 +36,27 @@ const teamMembers = [
         img: "img/female3.png"
     }
 ];
+
+
+const cards = document.querySelectorAll(".card");
+
+for (let i = 0; i < teamMembers.length; i++) {
+    console.log(teamMembers[i]);
+
+    const card = cards[i];
+    console.log(cards[i]);
+
+    const img = card.querySelector("img");
+    const name = card.querySelector(".card-title");
+    const role = card.querySelector(".card-text");
+    const email = card.querySelector(".text-info");
+
+    // console.log(name.innerHTML);
+
+    img.src = teamMembers[i].img;
+    name.innerHTML = teamMembers[i].name;
+    role.innerHTML = teamMembers[i].role;
+    email.innerHTML = teamMembers[i].email;
+
+    // console.log(name.innerHTML);
+}
